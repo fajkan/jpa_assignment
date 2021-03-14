@@ -15,6 +15,9 @@ public interface RecipeRepository extends CrudRepository<Recipe,Integer> {
     @Query("select a from Recipe a where a.recipeName = :recipeName")
     Collection<Recipe> findRecipeByRecipeName (@Param("recipeName") String recipeName);
 
+    @Query("select a from Recipe a where a.recipeCategories = :recipeCategories")
+    Collection<Recipe> FindRecipeByRecipeCategories(@Param("recipeCategory") String recipeCategories);
+    
     @Query("select a from RecipeIngredient a where a.ingredient = :ingredient")
     Collection<RecipeIngredient> searchAllRecipeByIngredientQuery(@Param("ingredient") String ingredient);
 
